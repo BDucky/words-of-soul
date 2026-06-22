@@ -46,3 +46,4 @@ CLAUDE.local.md
 .ai/
 .claude/hooks/utils/__pycache__/
 .claude/playwright-cli/auth-state.json
+.playwright-cli/

@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import StoryForm from '@/components/editor/StoryForm'
+import AdminPageShell from '@/components/admin/AdminPageShell'
 import { getStoryById } from '@/lib/stories'
 
 interface Props {
@@ -32,9 +33,9 @@ export default async function EditStoryPage({ params }: Props) {
   if (!story) notFound()
 
   return (
-    <div>
+    <AdminPageShell>
       <h1 className="font-serif text-3xl text-primary mb-10">Chỉnh sửa bài viết</h1>
       <StoryForm story={story} />
-    </div>
+    </AdminPageShell>
   )
 }
