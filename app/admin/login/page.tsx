@@ -28,92 +28,91 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center px-4">
+    <div className="relative min-h-screen flex items-center justify-center px-4 overflow-hidden">
 
-      {/* Background — full quality, no blur */}
+      {/* Background — unoptimized preserves original PNG quality, no WebP conversion */}
       <Image
         src="/images/admin-login-bg.png"
         alt=""
         fill
+        unoptimized
         className="object-cover object-center"
-        quality={100}
         priority
         sizes="100vw"
       />
-
-      {/* Soft dark veil for readability without hiding the photo */}
-      <div className="absolute inset-0 bg-black/30" />
+      {/* Veil — darkens image enough for the card to feel grounded */}
+      <div className="absolute inset-0 bg-black/25" />
 
       {/* Card */}
-      <div className="relative z-10 w-full max-w-[22rem]">
+      <div className="relative z-10 w-full max-w-sm">
+        <div className="bg-surface rounded-2xl overflow-hidden shadow-[0_32px_80px_rgba(0,0,0,0.4)] border border-white/10">
 
-        {/* Site name above card */}
-        <div className="text-center mb-8">
-          <p className="font-sans text-xs font-bold tracking-[0.15em] uppercase text-white/50 mb-2">
-            Quản trị
-          </p>
-          <h1 className="font-serif text-4xl font-medium text-white leading-tight drop-shadow">
-            {SITE_NAME}
-          </h1>
+          {/* Card header — branding integrated */}
+          <div className="px-10 pt-10 pb-7">
+            <p className="font-sans text-[10px] font-bold tracking-[0.2em] uppercase text-on-surface-variant/60 mb-2">
+              Quản trị
+            </p>
+            <h1 className="font-serif text-[1.85rem] font-medium text-primary leading-snug">
+              {SITE_NAME}
+            </h1>
+          </div>
+
+          <div className="h-px bg-outline-variant/40 mx-10" />
+
+          {/* Form */}
+          <form onSubmit={handleSubmit} className="px-10 py-8 flex flex-col gap-6">
+
+            <div className="flex flex-col gap-2">
+              <label
+                htmlFor="email"
+                className="font-sans text-[10px] font-bold tracking-[0.12em] uppercase text-on-surface-variant"
+              >
+                Email
+              </label>
+              <input
+                id="email"
+                type="email"
+                required
+                autoComplete="email"
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+                className="font-sans text-sm bg-transparent border-b border-outline-variant/60 py-2.5 text-on-surface placeholder:text-outline/50 focus:outline-none focus:border-primary transition-colors"
+                placeholder="you@example.com"
+              />
+            </div>
+
+            <div className="flex flex-col gap-2">
+              <label
+                htmlFor="password"
+                className="font-sans text-[10px] font-bold tracking-[0.12em] uppercase text-on-surface-variant"
+              >
+                Mật khẩu
+              </label>
+              <input
+                id="password"
+                type="password"
+                required
+                autoComplete="current-password"
+                value={password}
+                onChange={e => setPassword(e.target.value)}
+                className="font-sans text-sm bg-transparent border-b border-outline-variant/60 py-2.5 text-on-surface placeholder:text-outline/50 focus:outline-none focus:border-primary transition-colors"
+                placeholder="••••••••"
+              />
+            </div>
+
+            {error && (
+              <p className="font-sans text-xs text-error -mt-2">{error}</p>
+            )}
+
+            <button
+              type="submit"
+              disabled={loading}
+              className="mt-2 bg-primary text-on-primary font-sans text-[13px] font-medium tracking-[0.06em] py-3.5 rounded-lg hover:bg-primary/90 active:scale-[0.99] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {loading ? 'Đang đăng nhập…' : 'Đăng nhập'}
+            </button>
+          </form>
         </div>
-
-        {/* Form card */}
-        <form
-          onSubmit={handleSubmit}
-          className="bg-surface rounded-lg px-8 py-8 flex flex-col gap-6 shadow-2xl"
-        >
-          {/* Email */}
-          <div className="flex flex-col gap-2">
-            <label
-              htmlFor="email"
-              className="font-sans text-[11px] font-bold tracking-[0.1em] uppercase text-on-surface-variant"
-            >
-              Email
-            </label>
-            <input
-              id="email"
-              type="email"
-              required
-              autoComplete="email"
-              value={email}
-              onChange={e => setEmail(e.target.value)}
-              className="font-sans text-sm bg-transparent border-b border-outline-variant py-2 text-on-surface placeholder:text-outline/60 focus:outline-none focus:border-primary transition-colors"
-              placeholder="you@example.com"
-            />
-          </div>
-
-          {/* Password */}
-          <div className="flex flex-col gap-2">
-            <label
-              htmlFor="password"
-              className="font-sans text-[11px] font-bold tracking-[0.1em] uppercase text-on-surface-variant"
-            >
-              Mật khẩu
-            </label>
-            <input
-              id="password"
-              type="password"
-              required
-              autoComplete="current-password"
-              value={password}
-              onChange={e => setPassword(e.target.value)}
-              className="font-sans text-sm bg-transparent border-b border-outline-variant py-2 text-on-surface placeholder:text-outline/60 focus:outline-none focus:border-primary transition-colors"
-              placeholder="••••••••"
-            />
-          </div>
-
-          {error && (
-            <p className="font-sans text-xs text-error -mt-2">{error}</p>
-          )}
-
-          <button
-            type="submit"
-            disabled={loading}
-            className="mt-1 bg-primary text-on-primary font-sans text-sm font-medium py-3 rounded hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            {loading ? 'Đang đăng nhập…' : 'Đăng nhập'}
-          </button>
-        </form>
       </div>
     </div>
   )

@@ -64,7 +64,7 @@ export default async function StoryDetailPage({ params }: Props) {
 
       <main className="flex-1">
         {/* Article header */}
-        <div className="max-w-[70rem] mx-auto px-6 pt-16 pb-10 text-center">
+        <div className="max-w-280 mx-auto px-6 pt-16 pb-10 text-center">
           <CategoryBadge category={story.category} className="mb-6" />
           <h1 className="font-serif text-5xl md:text-6xl font-medium text-primary leading-[1.1] tracking-[-0.02em] mb-6 max-w-3xl mx-auto">
             {story.title}
@@ -89,7 +89,7 @@ export default async function StoryDetailPage({ params }: Props) {
         )}
 
         {/* Article body — 720px reading column */}
-        <article className="max-w-[45rem] mx-auto px-6 py-16">
+        <article className="max-w-180 mx-auto px-6 py-16">
           <div
             className="prose-story"
             dangerouslySetInnerHTML={{ __html: story.content }}

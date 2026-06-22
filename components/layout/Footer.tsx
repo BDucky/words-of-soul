@@ -4,7 +4,7 @@ import { SITE_NAME, SITE_TAGLINE } from '@/lib/site'
 export default function Footer() {
   return (
     <footer className="mt-auto border-t border-outline-variant/40 bg-surface">
-      <div className="max-w-[70rem] mx-auto px-6 py-12 flex flex-col sm:flex-row justify-between gap-8">
+      <div className="max-w-280 mx-auto px-6 py-12 flex flex-col sm:flex-row justify-between gap-8">
         {/* Left */}
         <div>
           <p className="font-serif text-lg text-primary font-medium">{SITE_NAME}</p>

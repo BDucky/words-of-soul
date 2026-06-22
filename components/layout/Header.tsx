@@ -14,7 +14,7 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-surface/95 backdrop-blur-sm border-b border-outline-variant/40">
-      <div className="max-w-[70rem] mx-auto px-6 h-16 flex items-center justify-between">
+      <div className="max-w-280 mx-auto px-6 h-16 flex items-center justify-between">
         {/* Brand */}
         <Link
           href="/"

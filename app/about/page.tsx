@@ -9,7 +9,7 @@ export default function AboutPage() {
   return (
     <>
       <Header />
-      <main className="flex-1 max-w-[45rem] mx-auto px-6 py-24">
+      <main className="flex-1 max-w-180 mx-auto px-6 py-24">
         <h1 className="font-serif text-5xl font-medium text-primary mb-6">{SITE_NAME}</h1>
         <p className="font-sans text-lg text-on-surface-variant italic mb-10">{SITE_TAGLINE}</p>
         <div className="prose-story">

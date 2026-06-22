@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import HeroSection from '@/components/stories/HeroSection'
@@ -32,7 +33,7 @@ export default async function DashboardPage() {
 
         {/* Featured + Secondary */}
         {stories.length > 0 && (
-          <section className="max-w-[70rem] mx-auto px-6 mt-20">
+          <section className="max-w-280 mx-auto px-6 mt-20">
             <div className="grid grid-cols-1 md:grid-cols-[3fr_2fr] gap-10">
               {featured && <FeaturedStoryCard story={featured} />}
 
@@ -49,7 +50,7 @@ export default async function DashboardPage() {
 
         {/* 3-col grid */}
         {grid.length > 0 && (
-          <section className="max-w-[70rem] mx-auto px-6 mt-[8rem]">
+          <section className="max-w-280 mx-auto px-6 mt-32">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
               {grid.map(story => (
                 <GridStoryCard key={story.id} story={story} />
@@ -60,13 +61,13 @@ export default async function DashboardPage() {
 
         {/* Empty state */}
         {stories.length === 0 && (
-          <section className="max-w-[70rem] mx-auto px-6 mt-20 text-center py-24">
+          <section className="max-w-280 mx-auto px-6 mt-20 text-center py-24">
             <p className="font-serif text-3xl text-primary mb-4">Chưa có câu chuyện nào.</p>
             <p className="font-sans text-on-surface-variant">
               Hãy bắt đầu bằng cách{' '}
-              <a href="/admin/stories/new" className="underline underline-offset-2 hover:text-primary transition-colors">
+              <Link href="/admin/stories/new" className="underline underline-offset-2 hover:text-primary transition-colors">
                 viết câu chuyện đầu tiên
-              </a>
+              </Link>
               .
             </p>
           </section>

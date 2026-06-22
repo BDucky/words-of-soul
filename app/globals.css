@@ -95,6 +95,15 @@ body {
   line-height: 1.6;
 }
 
+/* ── Autofill — kill browser blue highlight ── */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px var(--color-surface) inset !important;
+  -webkit-text-fill-color: var(--color-on-surface) !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
 /* ── Prose styles for article reading ── */
 .prose-story {
   font-family: var(--font-sans);
