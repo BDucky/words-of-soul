@@ -6,7 +6,7 @@ export default function AdminFooter() {
     <footer className="border-t border-outline-variant/20 pt-16 pb-4">
       <div className="flex items-center justify-between">
         <p className="font-sans text-xs font-bold text-secondary">
-          © 2024 {SITE_NAME}. Rooted in creativity.
+          © 2026 {SITE_NAME}. Rooted in creativity.
         </p>
         <nav className="flex items-center gap-6">
           <Link

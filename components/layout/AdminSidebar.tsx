@@ -17,8 +17,8 @@ import {
 const NAV_ITEMS = [
   { label: 'Dashboard', href: '/admin',           activeOn: '/admin',           icon: DashboardIcon },
   { label: 'Stories',   href: '/admin',           activeOn: '/admin/stories',   icon: StoriesIcon },
-  { label: 'Analytics', href: '/admin/analytics', activeOn: '/admin/analytics', icon: AnalyticsIcon },
-  { label: 'Settings',  href: '/admin/settings',  activeOn: '/admin/settings',  icon: SettingsIcon },
+  // { label: 'Analytics', href: '/admin/analytics', activeOn: '/admin/analytics', icon: AnalyticsIcon },
+  // { label: 'Settings',  href: '/admin/settings',  activeOn: '/admin/settings',  icon: SettingsIcon },
 ]
 
 export default function AdminSidebar() {
