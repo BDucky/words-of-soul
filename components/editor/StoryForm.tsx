@@ -65,7 +65,7 @@ export default function StoryForm({ story }: Props) {
       } else {
         await createStory(payload)
       }
-      router.push('/admin')
+      router.push('/dashboard')
       router.refresh()
     } catch (err) {
       console.error(err)
@@ -81,7 +81,7 @@ export default function StoryForm({ story }: Props) {
     setDeleting(true)
     try {
       await deleteStory(story.id)
-      router.push('/admin')
+      router.push('/dashboard')
       router.refresh()
     } catch {
       alert('Xóa thất bại. Vui lòng thử lại.')

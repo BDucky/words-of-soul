@@ -53,7 +53,7 @@ export default function Header() {
         {/* Right: CTA + search + avatar */}
         <div className="flex items-center gap-4">
           <Link
-            href="/admin"
+            href="/login"
             className="hidden sm:inline-flex items-center bg-primary text-on-primary font-sans text-sm font-medium px-6 py-2 rounded-xl hover:opacity-90 transition-opacity"
           >
             Viết

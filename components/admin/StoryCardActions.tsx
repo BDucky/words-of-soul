@@ -49,7 +49,7 @@ export default function StoryCardActions({ storyId, storySlug, authorId }: Props
 
         {isOwner && (
           <Link
-            href={`/admin/stories/${storyId}/edit`}
+            href={`/dashboard/stories/${storyId}/edit`}
             className="text-on-surface-variant hover:text-primary transition-colors"
             title="Chỉnh sửa"
           >
