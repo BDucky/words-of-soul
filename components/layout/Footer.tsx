@@ -1,41 +1,27 @@
 import Link from 'next/link'
-import { SITE_NAME, SITE_TAGLINE } from '@/lib/site'
+import { SITE_NAME } from '@/lib/site'
 
 export default function Footer() {
   return (
-    <footer className="mt-auto border-t border-outline-variant/40 bg-surface">
-      <div className="max-w-280 mx-auto px-6 py-12 flex flex-col sm:flex-row justify-between gap-8">
-        {/* Left */}
-        <div>
-          <p className="font-serif text-lg text-primary font-medium">{SITE_NAME}</p>
-          <p className="mt-1 text-xs text-on-surface-variant">
-            © {new Date().getFullYear()} {SITE_NAME}. {SITE_TAGLINE}.
-          </p>
-        </div>
+    <footer className="bg-surface">
+      <div className="max-w-280 mx-auto px-6 py-16 flex items-center justify-between">
+        <Link
+          href="/"
+          className="font-serif text-2xl font-bold text-primary tracking-tight hover:opacity-80 transition-opacity"
+        >
+          {SITE_NAME}
+        </Link>
 
-        {/* Right */}
-        <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-          <nav className="flex gap-6">
-            <Link href="/about"   className="text-xs text-on-surface-variant hover:text-primary transition-colors">Giới thiệu</Link>
-            <Link href="/contact" className="text-xs text-on-surface-variant hover:text-primary transition-colors">Liên hệ</Link>
-            <Link href="/feed.xml" className="text-xs text-on-surface-variant hover:text-primary transition-colors">Nguồn cấp RSS</Link>
+        <div className="flex items-center gap-8">
+          <nav className="hidden sm:flex items-center gap-6">
+            <Link href="/about"   className="font-sans text-xs text-secondary hover:text-primary transition-colors">Giới thiệu</Link>
+            <Link href="/privacy" className="font-sans text-xs text-secondary hover:text-primary transition-colors">Chính sách</Link>
+            <Link href="/contact" className="font-sans text-xs text-secondary hover:text-primary transition-colors">Liên hệ</Link>
           </nav>
 
-          {/* Social icons */}
-          <div className="flex gap-3">
-            <a href="#" aria-label="Email" className="text-on-surface-variant hover:text-primary transition-colors">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <rect x="2" y="4" width="20" height="16" rx="2"/>
-                <path d="m2 7 10 7 10-7"/>
-              </svg>
-            </a>
-            <a href="#" aria-label="RSS" className="text-on-surface-variant hover:text-primary transition-colors">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <path d="M4 11a9 9 0 0 1 9 9M4 4a16 16 0 0 1 16 16"/>
-                <circle cx="5" cy="19" r="1" fill="currentColor"/>
-              </svg>
-            </a>
-          </div>
+          <p className="font-sans text-xs font-bold text-secondary whitespace-nowrap">
+            © {new Date().getFullYear()} {SITE_NAME}. Những trang viết từ tâm hồn.
+          </p>
         </div>
       </div>
     </footer>
