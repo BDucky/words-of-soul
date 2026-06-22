@@ -8,7 +8,7 @@ export default function AdminSignOutButton() {
 
   async function handleSignOut() {
     await signOut()
-    router.replace('/admin/login')
+    router.replace('/login')
   }
 
   return (

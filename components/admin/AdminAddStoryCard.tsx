@@ -4,8 +4,8 @@ import { WriteIcon } from '@/components/icons'
 export default function AdminAddStoryCard() {
   return (
     <Link
-      href="/admin/stories/new"
-      className="bg-surface-container-low rounded-lg flex flex-col items-center justify-center gap-4 min-h-[400px] hover:bg-surface-container transition-colors group border border-outline-variant/20"
+      href="/dashboard/stories/new"
+      className="bg-surface-container-low rounded-lg flex flex-col items-center justify-center gap-4 min-h-40 sm:min-h-80 lg:min-h-[400px] hover:bg-surface-container transition-colors group border border-outline-variant/20"
     >
       <div className="w-16 h-16 bg-primary-fixed rounded-xl flex items-center justify-center text-primary group-hover:bg-primary-fixed-dim transition-colors">
         <WriteIcon size={28} />

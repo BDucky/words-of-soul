@@ -65,7 +65,7 @@ export default async function DashboardPage() {
             <p className="font-serif text-3xl text-primary mb-4">Chưa có câu chuyện nào.</p>
             <p className="font-sans text-on-surface-variant">
               Hãy bắt đầu bằng cách{' '}
-              <Link href="/admin/stories/new" className="underline underline-offset-2 hover:text-primary transition-colors">
+              <Link href="/dashboard/stories/new" className="underline underline-offset-2 hover:text-primary transition-colors">
                 viết câu chuyện đầu tiên
               </Link>
               .

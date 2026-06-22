@@ -18,7 +18,7 @@ export default function AdminPagination({ currentPage, totalPages, baseHref }: P
       {prevDisabled ? (
         <span className="flex items-center gap-2 font-sans text-xs font-bold tracking-[0.08em] uppercase text-outline/40 cursor-not-allowed select-none">
           <ChevronLeftIcon size={16} />
-          Trang trước
+          <span className="hidden sm:inline">Trang trước</span>
         </span>
       ) : (
         <Link
@@ -26,7 +26,7 @@ export default function AdminPagination({ currentPage, totalPages, baseHref }: P
           className="flex items-center gap-2 font-sans text-xs font-bold tracking-[0.08em] uppercase text-secondary hover:text-primary transition-colors"
         >
           <ChevronLeftIcon size={16} />
-          Trang trước
+          <span className="hidden sm:inline">Trang trước</span>
         </Link>
       )}
 
@@ -49,7 +49,7 @@ export default function AdminPagination({ currentPage, totalPages, baseHref }: P
 
       {nextDisabled ? (
         <span className="flex items-center gap-2 font-sans text-xs font-bold tracking-[0.08em] uppercase text-outline/40 cursor-not-allowed select-none">
-          Trang tiếp
+          <span className="hidden sm:inline">Trang tiếp</span>
           <ChevronRightIcon size={16} />
         </span>
       ) : (
@@ -57,7 +57,7 @@ export default function AdminPagination({ currentPage, totalPages, baseHref }: P
           href={`${baseHref}?page=${currentPage + 1}`}
           className="flex items-center gap-2 font-sans text-xs font-bold tracking-[0.08em] uppercase text-secondary hover:text-primary transition-colors"
         >
-          Trang tiếp
+          <span className="hidden sm:inline">Trang tiếp</span>
           <ChevronRightIcon size={16} />
         </Link>
       )}

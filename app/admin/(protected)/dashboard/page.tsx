@@ -1,5 +1,5 @@
 import { redirect } from 'next/navigation'
 
-export default function OldAdminRootPage() {
+export default function OldDashboardPage() {
   redirect('/dashboard')
 }
