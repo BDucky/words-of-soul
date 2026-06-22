@@ -4,7 +4,7 @@ import { SITE_NAME } from '@/lib/site'
 export default function AdminFooter() {
   return (
     <footer className="border-t border-outline-variant/20 pt-16 pb-4">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <p className="font-sans text-xs font-bold text-secondary">
           © 2026 {SITE_NAME}. Rooted in creativity.
         </p>

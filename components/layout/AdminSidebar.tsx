@@ -7,18 +7,14 @@ import { signOut } from '@/lib/auth'
 import {
   DashboardIcon,
   StoriesIcon,
-  AnalyticsIcon,
-  SettingsIcon,
   PlusIcon,
   HelpIcon,
   LogoutIcon,
 } from '@/components/icons'
 
 const NAV_ITEMS = [
-  { label: 'Dashboard', href: '/admin',           activeOn: '/admin',           icon: DashboardIcon },
-  { label: 'Stories',   href: '/admin',           activeOn: '/admin/stories',   icon: StoriesIcon },
-  // { label: 'Analytics', href: '/admin/analytics', activeOn: '/admin/analytics', icon: AnalyticsIcon },
-  // { label: 'Settings',  href: '/admin/settings',  activeOn: '/admin/settings',  icon: SettingsIcon },
+  { label: 'Dashboard', href: '/dashboard', activeOn: '/dashboard', icon: DashboardIcon },
+  { label: 'Stories',   href: '/dashboard', activeOn: '/dashboard/stories', icon: StoriesIcon },
 ]
 
 export default function AdminSidebar() {
@@ -27,11 +23,11 @@ export default function AdminSidebar() {
 
   async function handleLogout() {
     await signOut()
-    router.replace('/admin/login')
+    router.replace('/login')
   }
 
   return (
-    <aside className="w-64 min-h-screen bg-surface-container-low flex flex-col shrink-0 sticky top-0 self-start h-screen overflow-y-auto">
+    <aside className="hidden lg:flex flex-col w-64 min-h-screen bg-surface-container-low shrink-0 sticky top-0 self-start h-screen overflow-y-auto">
 
       {/* Branding */}
       <div className="px-4 pt-16 pb-2">
@@ -45,8 +41,8 @@ export default function AdminSidebar() {
       <nav className="flex-1 px-4 pt-4">
         <ul className="flex flex-col gap-2">
           {NAV_ITEMS.map(({ label, href, activeOn, icon: Icon }) => {
-            const active = activeOn === '/admin'
-              ? pathname === '/admin'
+            const active = activeOn === '/dashboard'
+              ? pathname === '/dashboard'
               : pathname.startsWith(activeOn)
             return (
               <li key={label}>
@@ -76,7 +72,7 @@ export default function AdminSidebar() {
 
         {/* New Story CTA */}
         <Link
-          href="/admin/stories/new"
+          href="/dashboard/stories/new"
           className="flex items-center justify-center gap-2 bg-primary text-on-primary font-sans text-base px-6 py-3 rounded-xl hover:bg-primary/90 transition-opacity"
         >
           <PlusIcon size={14} />
@@ -87,7 +83,7 @@ export default function AdminSidebar() {
         <ul className="flex flex-col gap-1">
           <li>
             <Link
-              href="/admin/help"
+              href="/help"
               className="flex items-center gap-3 px-4 py-2 rounded-xl font-sans text-sm text-on-surface-variant hover:bg-surface-container transition-colors"
             >
               <HelpIcon size={14} />
