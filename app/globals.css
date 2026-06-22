@@ -71,8 +71,8 @@
   --color-on-petal: #7a1533;
 
   /* ── Fonts ── */
-  --font-serif: var(--font-eb-garamond), Georgia, 'Times New Roman', serif;
-  --font-sans:  var(--font-dm-sans), system-ui, sans-serif;
+  --font-serif: var(--font-cormorant), Georgia, 'Times New Roman', serif;
+  --font-sans:  var(--font-be-vietnam-pro), system-ui, sans-serif;
 
   /* ── Border radius (from DESIGN.md) ── */
   --radius-sm:      0.125rem;
