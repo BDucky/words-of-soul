@@ -2,23 +2,19 @@
 
 ## Slash Commands
 
-| Command | Invoked as | Purpose |
-|---|---|---|
-| `commands/commit.md` | `/commit` | Stage + commit with conventional message (review gate) |
-| `commands/git/commit.md` | `/git:commit` | Same — nested alias |
-| `commands/git/mr-create.md` | `/git:mr-create` | Open a pull request |
-| `commands/git/sync.md` | `/git:sync` | Sync branch with upstream |
-| `commands/git/status.md` | `/git:status` | Git status summary |
-| `commands/git/worktree-init.md` | `/git:worktree-init` | Create a new worktree |
-| `commands/git/worktree-clean.md` | `/git:worktree-clean` | Remove a worktree |
-| `commands/lint/audit.md` | `/lint:audit` | Run ESLint audit |
-| `commands/lint/resolve.md` | `/lint:resolve` | Fix lint errors |
-| `commands/workflow/feature.md` | `/workflow:feature` | Start a feature workflow |
-| `commands/workflow/bug.md` | `/workflow:bug` | Start a bug-fix workflow |
-| `commands/workflow/implement.md` | `/workflow:implement` | Full implement cycle |
-| `commands/workflow/review.md` | `/workflow:review` | Review current changes |
-| `commands/handoff.md` | `/handoff` | Session handoff summary |
-| `commands/prime.md` | `/prime` | Load project context |
+| Command | Purpose |
+|---|---|
+| `/commit` | Stage + commit with conventional message (review gate) |
+| `/pr` | Create a pull request |
+| `/sync` | Sync branch with upstream |
+| `/branch` | Create a new feature branch |
+| `/git-status` | Git status summary |
+| `/feature` | Start a feature workflow |
+| `/bug` | Start a bug-fix workflow |
+| `/implement` | Full implement cycle |
+| `/lint` | Fix lint errors |
+| `/handoff` | Session handoff summary |
+| `/prime` | Load project context |
 
 ## Built-in Claude Code Skills
 
