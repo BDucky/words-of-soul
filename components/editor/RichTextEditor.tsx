@@ -98,13 +98,19 @@ export default function RichTextEditor({ content, onChange }: Props) {
         </ToolbarButton>
         <span className="w-px h-5 bg-outline-variant/60 mx-1" />
         <ToolbarButton onClick={handleImageUpload} title="Chèn ảnh">
-          🖼
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="2" />
+            <circle cx="8.5" cy="8.5" r="1.5" />
+            <path d="m21 15-5-5L5 21" />
+          </svg>
         </ToolbarButton>
       </div>
 
-      {/* Editor area */}
-      <div className="p-6 min-h-[420px] bg-surface-container-lowest">
-        <EditorContent editor={editor} />
+      {/* Editor area — max-w-180 mirrors the 720px reader column for accurate WYSIWYG */}
+      <div className="px-6 py-6 min-h-[420px] bg-surface-container-lowest">
+        <div className="max-w-180 mx-auto">
+          <EditorContent editor={editor} />
+        </div>
       </div>
 
       {/* Word count */}

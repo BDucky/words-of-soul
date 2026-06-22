@@ -2,18 +2,27 @@
 
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { deleteStory } from '@/lib/stories'
+import { getFirebaseAuth } from '@/lib/auth'
 import { EyeIcon, PencilIcon, TrashIcon } from '@/components/icons'
 
 interface Props {
-  storyId: string
+  storyId:   string
   storySlug: string
+  authorId:  string
 }
 
-export default function StoryCardActions({ storyId, storySlug }: Props) {
-  const router  = useRouter()
+export default function StoryCardActions({ storyId, storySlug, authorId }: Props) {
+  const router = useRouter()
   const [busy, setBusy] = useState(false)
+  const [isOwner, setIsOwner] = useState(false)
+
+  useEffect(() => {
+    const uid = getFirebaseAuth().currentUser?.uid ?? ''
+    // Stories without authorId (created before this feature) are editable by anyone
+    setIsOwner(!authorId || authorId === uid)
+  }, [authorId])
 
   async function handleDelete() {
     if (!confirm('Xoá bài viết này?')) return
@@ -37,22 +46,28 @@ export default function StoryCardActions({ storyId, storySlug }: Props) {
         >
           <EyeIcon size={16} />
         </Link>
-        <Link
-          href={`/admin/stories/${storyId}/edit`}
-          className="text-on-surface-variant hover:text-primary transition-colors"
-          title="Chỉnh sửa"
-        >
-          <PencilIcon size={16} />
-        </Link>
+
+        {isOwner && (
+          <Link
+            href={`/admin/stories/${storyId}/edit`}
+            className="text-on-surface-variant hover:text-primary transition-colors"
+            title="Chỉnh sửa"
+          >
+            <PencilIcon size={16} />
+          </Link>
+        )}
       </div>
-      <button
-        onClick={handleDelete}
-        disabled={busy}
-        className="text-on-surface-variant hover:text-error transition-colors disabled:opacity-40"
-        title="Xoá bài viết"
-      >
-        <TrashIcon size={16} />
-      </button>
+
+      {isOwner && (
+        <button
+          onClick={handleDelete}
+          disabled={busy}
+          className="text-on-surface-variant hover:text-error transition-colors disabled:opacity-40"
+          title="Xoá bài viết"
+        >
+          <TrashIcon size={16} />
+        </button>
+      )}
     </div>
   )
 }

@@ -81,7 +81,7 @@ export default async function StoryDetailPage({ params }: Props) {
           {/* Back link row */}
           <div className="flex items-center">
             <Link
-              href="/"
+              href="/admin"
               className="flex items-center gap-2 font-sans text-base text-secondary uppercase tracking-[0.08em] hover:text-primary transition-colors"
             >
               <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">

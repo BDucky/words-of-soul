@@ -6,6 +6,7 @@ import dynamic from 'next/dynamic'
 import CoverImageUpload from './CoverImageUpload'
 import { CATEGORIES } from '@/types/story'
 import { createStory, updateStory, deleteStory, generateSlug, calculateReadTime } from '@/lib/stories'
+import { getFirebaseAuth } from '@/lib/auth'
 import type { Story } from '@/types/story'
 
 const RichTextEditor = dynamic(() => import('./RichTextEditor'), {
@@ -20,6 +21,8 @@ interface Props {
 export default function StoryForm({ story }: Props) {
   const router = useRouter()
   const isEditing = !!story
+  const currentUid = getFirebaseAuth().currentUser?.uid ?? ''
+  const isOwner = !isEditing || !story?.authorId || story?.authorId === currentUid
 
   const [title,      setTitle]      = useState(story?.title ?? '')
   const [slug,       setSlug]       = useState(story?.slug ?? '')
@@ -54,6 +57,7 @@ export default function StoryForm({ story }: Props) {
         content,
         readTimeMinutes: calculateReadTime(content),
         published:       publish !== undefined ? publish : published,
+        authorId:        isEditing ? (story?.authorId ?? currentUid) : currentUid,
       }
 
       if (isEditing) {
@@ -87,6 +91,14 @@ export default function StoryForm({ story }: Props) {
   }
 
   const inputBase = 'w-full bg-transparent border-0 border-b border-primary/40 focus:border-primary focus:outline-none py-2 font-sans text-on-surface placeholder:text-outline transition-colors'
+
+  if (!isOwner) {
+    return (
+      <div className="py-12 text-center">
+        <p className="font-sans text-sm text-secondary">Bạn chỉ có thể xem bài viết này, không thể chỉnh sửa.</p>
+      </div>
+    )
+  }
 
   return (
     <form onSubmit={e => { e.preventDefault(); handleSave() }} className="space-y-8">
