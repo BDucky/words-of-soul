@@ -31,6 +31,7 @@ function toStory(id: string, data: Record<string, unknown>): Story {
     publishedAt:     (data.publishedAt as Timestamp).toDate().toISOString(),
     updatedAt:       (data.updatedAt as Timestamp).toDate().toISOString(),
     published:       data.published as boolean,
+    authorId:        (data.authorId as string) ?? '',
   }
 }
 

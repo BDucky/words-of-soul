@@ -10,6 +10,7 @@ export interface Story {
   publishedAt: string   // ISO string
   updatedAt: string
   published: boolean
+  authorId: string    // Firebase Auth UID of the creator
 }
 
 export type StoryInput = Omit<Story, 'id' | 'publishedAt' | 'updatedAt'>

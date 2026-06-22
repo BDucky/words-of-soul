@@ -1,0 +1,13 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /stories/{storyId} {
+      // Open read: server components (ISR/SSR) run without auth; stories are public content.
+      // Drafts being readable via direct Firestore query is acceptable for a personal blog.
+      allow read: if true;
+      // Only authenticated users can create/update/delete
+      allow create: if request.auth != null;
+      allow update, delete: if request.auth != null;
+    }
+  }
+}

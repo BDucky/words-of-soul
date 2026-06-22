@@ -38,7 +38,7 @@ export default function AdminStoryCard({ story }: Props) {
         <p className="font-sans text-sm text-on-surface-variant leading-relaxed line-clamp-3 flex-1">
           {story.excerpt}
         </p>
-        <StoryCardActions storyId={story.id} storySlug={story.slug} />
+        <StoryCardActions storyId={story.id} storySlug={story.slug} authorId={story.authorId} />
       </div>
     </article>
   )

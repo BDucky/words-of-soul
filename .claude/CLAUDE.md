@@ -50,9 +50,27 @@ Before reporting any UI change as done:
 - No bare `<a>` for internal routes — always `<Link>` from `next/link`.
 
 ### Firebase / Auth
+
+> Full reference: `FIREBASE.md` — read it before any Firebase task.
+
+**Before touching any Firebase feature, always:**
+1. Check `firestore.rules` and `storage.rules` are consistent with the change.
+2. If rules need updating, edit the relevant `.rules` file **and** remind the user to deploy:
+   ```bash
+   firebase deploy --only firestore:rules,storage
+   ```
+3. Verify `.env.local` has all required `NEXT_PUBLIC_FIREBASE_*` keys before assuming SDK calls will work.
+
+**Code conventions (never bypass):**
 - Never import from `lib/firebase.ts` for auth — always use `lib/auth.ts` (lazy load).
-- All Firestore CRUD goes through `lib/stories.ts` only.
+- All Firestore CRUD goes through `lib/stories.ts` only — never call Firestore SDK directly from components.
 - Storage operations through `lib/storage.ts` only.
+- Never call Firebase SDK directly from a component — always go through the lib layer.
+
+**Common 403/permission errors:**
+- `Missing or insufficient permissions` on Firestore write → `firestore.rules` needs updating + deploy.
+- `Permission denied` on Storage upload → `storage.rules` needs updating + deploy.
+- Both errors look like network failures but are rules mismatches — check rules first before debugging code.
 
 ### Next.js 16
 - Dynamic route `params` are a **Promise** — always `await params` before destructuring.
