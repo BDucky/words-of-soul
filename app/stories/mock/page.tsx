@@ -26,8 +26,8 @@ const MOCK_STORY: Story = {
   category:         'Thiên nhiên',
   coverImage:       COVER_FOREST,
   readTimeMinutes:  6,
-  publishedAt:      '2024-11-15T08:00:00.000Z',
-  updatedAt:        '2024-11-15T08:00:00.000Z',
+  publishedAt:      '2026-06-22T08:00:00.000Z',
+  updatedAt:        '2026-06-22T08:00:00.000Z',
   published:        true,
   content: `
 <p>Có những buổi sáng, khi thành phố vẫn còn chìm trong giấc ngủ và làn sương mỏng còn vương trên những mái nhà, tôi thường tìm đến rừng. Không phải để chạy trốn, mà để nhớ lại cảm giác — cảm giác chân chạm trên thảm lá mục, cảm giác hơi thở của đất ẩm sau cơn mưa đêm, cảm giác của một tâm trí cuối cùng cũng được im lặng.</p>
