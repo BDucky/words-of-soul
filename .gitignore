@@ -39,3 +39,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+CLAUDE.local.md
+
+# Claude Code local artifacts
+CLAUDE.local.md
+.ai/
+.claude/hooks/utils/__pycache__/
+.claude/playwright-cli/auth-state.json
